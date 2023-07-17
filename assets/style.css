@@ -1,0 +1,20 @@
+header {
+  background: linear-gradient(to right, #02578c, #03009f);
+}
+
+.input-group input {
+  padding: 0;
+}
+
+.border-btn {
+  border-bottom: 2px solid black;
+  padding-bottom: 30px;
+}
+
+.day-box {
+  border: 2px solid black;
+}
+
+.display-cards {
+  background-color: rgb(30, 30, 57);
+}
