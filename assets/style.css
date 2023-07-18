@@ -2,19 +2,98 @@ header {
   background: linear-gradient(to right, #02578c, #03009f);
 }
 
+.cont {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 .input-group input {
   padding: 0;
 }
 
+.weather-display {
+  max-width: auto;
+}
+
 .border-btn {
   border-bottom: 2px solid black;
-  padding-bottom: 30px;
+  padding-bottom: 1rem;
 }
 
 .day-box {
+  margin-top: 1rem;
   border: 2px solid black;
 }
 
-.display-cards {
-  background-color: rgb(30, 30, 57);
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#current-weather {
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  font-weight: 700;
+}
+
+.search-list li {
+  background-color: rgb(155, 155, 155);
+  margin-top: 1rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#weather ul {
+  padding-bottom: 1rem;
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+
+#temp li {
+  padding-left: 2rem;
+  font-size: 22px;
+}
+
+#display-cards {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+#card {
+  background-color: rgb(76, 76, 115);
+  height: 15rem;
+}
+
+#card h3 {
+  padding-left: 5px;
+}
+
+#card li {
+  padding-bottom: 1rem;
+  padding-left: 5px;
+}
+
+@media (max-width: 1220px) {
+  #display-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  #display-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cont {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
