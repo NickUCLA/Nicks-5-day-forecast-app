@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicks 5 day forecast</title>
 
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -21,48 +20,117 @@
       </div>
     </header>
 
-    <div class="container">
+    <div class="cont">
       <div class="row mt-5">
-        <aside class="col-lg-4">
+        <aside class="col-lg-3">
           <div>
             <div class="border-btn">
               <h2 class="mb-3">Search for a City:</h2>
               <div class="input-group mb-3">
                 <input
+                  id="search-input"
                   type="text"
                   class="form-control"
                   placeholder="Find City.."
                 />
+                <input
+                  id="state-input"
+                  class="form-control"
+                  placeholder="State"
+                />
               </div>
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-primary btn-block" type="button">
+                  <button
+                    id="search-btn"
+                    class="btn btn-primary btn-block"
+                    type="button"
+                  >
                     Search
                   </button>
                 </div>
               </div>
             </div>
             <div>
-              <ul class="list-group">
-                <!-- City list items will be dynamically added here -->
+              <ul id="city-list" class="list-group search-list">
+                <li>Atlanta</li>
+                <li>Denver</li>
+                <li>Seattle</li>
+                <li>San Fransisco</li>
+                <li>Orlando</li>
+                <li>New York</li>
+                <li>Chicago</li>
+                <li>Austin</li>
               </ul>
             </div>
           </div>
         </aside>
-        <div class="col-lg-8">
-          <!-- Add your main content on the right side here -->
-          <div class="display-day day-box">
-            <h2 class="current-weather">Day</h2>
-            <ul class="weather"></ul>
+        <div class="col-lg-9 weather-display">
+          <div id="display-day" class="day-box">
+            <h2 id="current-weather">Day/Location</h2>
+            <ul id="weather">
+              <ul id="temp">
+                Temp:
+                <li id="high-temp">High:</li>
+                <li id="low-temp">Low:</li>
+              </ul>
+              <ul id="wind">
+                <li>Wind:</li>
+              </ul>
+              <ul id="humidity">
+                <li>Humidity:</li>
+              </ul>
+            </ul>
           </div>
           <div>
             <div class="5-day">
               <h3>5-Day Forecast</h3>
-              <!-- Make these cards in js -->
-              <div class="col-lg-2 display-cards">
-                <h3 class="display-date">Date</h3>
-                <img />
-                <ul class="card-weather"></ul>
+              <div id="display-cards">
+                <div id="card">
+                  <h3 id="display-date">Date</h3>
+                  <img />
+                  <ul id="card-weather">
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity:</li>
+                  </ul>
+                </div>
+                <div id="card">
+                  <h3 id="display-date">Date</h3>
+                  <img />
+                  <ul id="card-weather">
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity:</li>
+                  </ul>
+                </div>
+                <div id="card">
+                  <h3 id="display-date">Date</h3>
+                  <img />
+                  <ul id="card-weather">
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity:</li>
+                  </ul>
+                </div>
+                <div id="card">
+                  <h3 id="display-date">Date</h3>
+                  <img />
+                  <ul id="card-weather">
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity:</li>
+                  </ul>
+                </div>
+                <div id="card">
+                  <h3 id="display-date">Date</h3>
+                  <img />
+                  <ul id="card-weather">
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity:</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -70,7 +138,6 @@
       </div>
     </div>
 
-    <!-- jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
