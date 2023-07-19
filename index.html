@@ -31,7 +31,7 @@
                   id="search-input"
                   type="text"
                   class="form-control"
-                  placeholder="Find City.."
+                  placeholder="City"
                 />
                 <input
                   id="state-input"
@@ -53,24 +53,28 @@
             </div>
             <div>
               <ul id="city-list" class="list-group search-list">
-                <li>Atlanta</li>
-                <li>Denver</li>
-                <li>Seattle</li>
-                <li>San Fransisco</li>
-                <li>Orlando</li>
-                <li>New York</li>
-                <li>Chicago</li>
-                <li>Austin</li>
+                <li data-state="GA">Atlanta, GA</li>
+                <li data-state="CO">Denver, CO</li>
+                <li data-state="WA">Seattle, WA</li>
+                <li data-state="CA">San Francisco, CA</li>
+                <li data-state="FL">Orlando, FL</li>
+                <li data-state="NY">New York, NY</li>
+                <li data-state="IL">Chicago, IL</li>
+                <li data-state="TX">Austin, TX</li>
               </ul>
             </div>
           </div>
         </aside>
         <div class="col-lg-9 weather-display">
           <div id="display-day" class="day-box">
-            <h2 id="current-weather">Day/Location</h2>
+            <div class="title-image">
+              <h2 id="current-weather">Day/Location</h2>
+              <img id="current-icon" />
+            </div>
             <ul id="weather">
               <ul id="temp">
-                Temp:
+                Temperature:
+                <li id="current-temp">Current:</li>
                 <li id="high-temp">High:</li>
                 <li id="low-temp">Low:</li>
               </ul>
