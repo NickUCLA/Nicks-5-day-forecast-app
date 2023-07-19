@@ -258,10 +258,9 @@ $(document).ready(function () {
     $("#city-list").on("click", "li", function () {
       cityElem = $(this);
       cityName = $(this).text().split(",")[0];
-      console.log(cityName);
+
       if (cityElem.attr("data-state")) {
         var stateName = cityElem.attr("data-state");
-        console.log(stateName);
       }
       getCoordinates(cityName, stateName);
     });
@@ -277,8 +276,6 @@ $(document).ready(function () {
     var maxItems = 9;
     var li;
     if (cityName !== "") {
-      console.log(cityName);
-
       function getStateName() {
         var cityLocation = stateName ? `${cityName},${stateName},US` : cityName;
         var cities = `http://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
@@ -326,9 +323,9 @@ $(document).ready(function () {
 // gets coordinates to find weather and state name
 function getCoordinates(city, state) {
   var cityLocation = state ? `${city},${state},US` : city;
-  console.log(cityLocation);
+
   var cities = `http://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
-  console.log(cities);
+
   var date = new Date();
   var currentDate = formatDate(date);
   var dayLocation;
@@ -348,7 +345,6 @@ function getCoordinates(city, state) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       latitude = data[0].lat;
       longitude = data[0].lon;
       stateName = data[0].state;
@@ -372,9 +368,6 @@ function getWeather(lat, lon) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-
-      // need current temp
       var currentTemp =
         "Currently: " + Math.floor(kelvinToFahrenheit(data.main.temp)) + " °F";
       var highTemp =
@@ -384,8 +377,6 @@ function getWeather(lat, lon) {
       var wind = "Wind: " + data.wind.speed + " MPH";
       var humidity = "Humidity: " + data.main.humidity + " %";
       var icon = data.weather[0].icon;
-
-      console.log(icon);
 
       $("#current-icon").attr("src", `assets/icons/${icon}.png`);
 
@@ -422,8 +413,6 @@ function getForecast(lat, lon) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-
       var cardContainer = document.getElementById("display-cards");
       cardContainer.innerHTML = "";
 
@@ -525,6 +514,9 @@ function getForecast(lat, lon) {
 function loadWeather() {
   var dayLocationJSON = localStorage.getItem("dayLocation");
   var dayLocation = JSON.parse(dayLocationJSON);
+  if (dayLocation === null) {
+    return;
+  }
   $("#current-weather").text(dayLocation);
 
   var weatherDataJSON = localStorage.getItem("weatherData");
@@ -545,9 +537,9 @@ function loadWeather() {
   $("#humidity li").text(humidity);
 
   var forecastJSON = localStorage.getItem("forecastData");
-
   var forecastData = JSON.parse(forecastJSON);
   var cardContainer = document.getElementById("display-cards");
+
   cardContainer.innerHTML = ""; // Clear the card container before adding new cards
 
   for (var i = 0; i < forecastData.length; i++) {
@@ -626,7 +618,6 @@ function loadCitiesList() {
     }
     liElem.push(li);
   }
-  console.log(liElem);
 
   $("#city-list").prepend(liElem);
   if ($("#city-list li").length > maxItems) {
