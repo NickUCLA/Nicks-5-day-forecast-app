@@ -514,7 +514,8 @@ function getForecast(lat, lon) {
 function loadWeather() {
   var dayLocationJSON = localStorage.getItem("dayLocation");
   var dayLocation = JSON.parse(dayLocationJSON);
-  if (dayLocation === null) {
+  console.log(dayLocationJSON);
+  if (dayLocationJSON === null) {
     return;
   }
   $("#current-weather").text(dayLocation);
