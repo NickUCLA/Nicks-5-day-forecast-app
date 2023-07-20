@@ -262,7 +262,6 @@ $(document).ready(function () {
       if (cityElem.attr("data-state")) {
         var stateName = cityElem.attr("data-state");
       }
-      console.log(cityName, stateName);
       getCoordinates(cityName, stateName);
     });
   }
@@ -326,7 +325,6 @@ function getCoordinates(city, state) {
   var cityLocation = state ? `${city},${state},US` : city;
 
   var cities = `https://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
-  console.log(cities);
   var date = new Date();
   var currentDate = formatDate(date);
   var dayLocation;
@@ -346,7 +344,6 @@ function getCoordinates(city, state) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       latitude = data[0].lat;
       longitude = data[0].lon;
       stateName = data[0].state;
@@ -516,7 +513,6 @@ function getForecast(lat, lon) {
 function loadWeather() {
   var dayLocationJSON = localStorage.getItem("dayLocation");
   var dayLocation = JSON.parse(dayLocationJSON);
-  console.log(dayLocationJSON);
   if (dayLocationJSON === null) {
     return;
   }
