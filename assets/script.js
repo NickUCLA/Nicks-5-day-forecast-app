@@ -279,7 +279,7 @@ $(document).ready(function () {
     if (cityName !== "") {
       function getStateName() {
         var cityLocation = stateName ? `${cityName},${stateName},US` : cityName;
-        var cities = `http://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
+        var cities = `https://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
         fetch(cities)
           .then(function (response) {
             return response.json();
@@ -325,7 +325,7 @@ $(document).ready(function () {
 function getCoordinates(city, state) {
   var cityLocation = state ? `${city},${state},US` : city;
 
-  var cities = `http://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
+  var cities = `https://api.openweathermap.org/geo/1.0/direct?q=${cityLocation}&limit=5&appid=${key}`;
   console.log(cities);
   var date = new Date();
   var currentDate = formatDate(date);
