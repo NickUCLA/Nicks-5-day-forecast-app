@@ -518,11 +518,16 @@ function loadWeather() {
   var dayLocation = JSON.parse(dayLocationJSON);
   console.log(dayLocationJSON);
   if (dayLocationJSON === null) {
+    return;
   }
   $("#current-weather").text(dayLocation);
 
   var weatherDataJSON = localStorage.getItem("weatherData");
   var weatherData = JSON.parse(weatherDataJSON);
+
+  if (!weatherData || typeof weatherData !== "object") {
+    return;
+  }
 
   var currentTemp = weatherData.currentTemp;
   var highTemp = weatherData.highTemp;
