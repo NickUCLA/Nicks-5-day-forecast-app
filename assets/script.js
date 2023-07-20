@@ -347,13 +347,13 @@ function getCoordinates(city, state) {
       latitude = data[0].lat;
       longitude = data[0].lon;
       stateName = data[0].state;
-
       getWeather(latitude, longitude);
       getForecast(latitude, longitude);
     })
     .catch(function (error) {
       // Handle any errors that occurred during the API request
       alert("Cant find city.");
+      localStorage.removeItem("dayLocation");
       location.reload();
     });
 }
@@ -613,10 +613,10 @@ function loadCitiesList() {
   for (var i = 0; i < citiesListData.length; i++) {
     //checks if there is a state
     if (citiesListData[i].state === null) {
-      li = $("<li>").text(citiesListData[i].name);
+      li = $("<li>").text(capitalWords(citiesListData[i].name));
     } else {
       li = $("<li>").text(
-        citiesListData[i].name + ", " + citiesListData[i].state
+        capitalWords(citiesListData[i].name) + ", " + citiesListData[i].state
       );
     }
     liElem.push(li);
